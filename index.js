@@ -22,7 +22,7 @@ const ratelimiter = (req, res, next)=>{
 
   // Client Response::
   const success = ()=>{
-    (req.path=='/')? res.send('Welcome to EQ Works 😎: Version 1.0') : queryHandler(req, res, next);
+    (req.path=='/')? res.send('Welcome to EQ Works 😎: Version 2.0') : queryHandler(req, res, next);
   };
   // Save first connection:
   if(queue[requestIp.getClientIp(req) ] ){
