@@ -6,6 +6,7 @@ require('dotenv').config()
 const app = express()
 const pool = new pg.Pool()
 
+// Controls:
 const queue = {};
 const maxRequests = 10;
 const refreshTime = 10000;
