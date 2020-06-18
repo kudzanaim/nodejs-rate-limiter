@@ -1,10 +1,14 @@
 const express = require('express')
 const pg = require('pg')
+const cors = require('cors')
 const requestIp = require('request-ip');
 require('dotenv').config()
 
 const app = express()
 const pool = new pg.Pool()
+
+// Set Cors:
+app.use(cors())
 
 // Controls:
 const queue = {};
