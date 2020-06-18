@@ -20,7 +20,7 @@ const queryHandler = (req, res, next) => {
 
 const ratelimiter = (req, res, next)=>{
 
-  // Client Response:
+  // Client Response::
   const success = ()=>{
     (req.path=='/')? res.send('Welcome to EQ Works 😎: Version 1.0') : queryHandler(req, res, next);
   };
