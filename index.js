@@ -10,7 +10,7 @@ const pool = new pg.Pool()
 const queue = {};
 const maxRequests = 10;
 const refreshTime = 10000;
-const requestWindow = 30000; //millisecond
+const requestWindow = 30000; //milliseconds
 
 const queryHandler = (req, res, next) => {
   pool.query(req.sqlQuery).then((r) => {
