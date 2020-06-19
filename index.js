@@ -117,7 +117,7 @@ app.get('/poi', (req, res, next) => {
     SELECT
 
     SUM(clicks) AS clicks,
-    SUM(impressions/10) AS impressions,
+    SUM(impressions/100) AS impressions,
     SUM(revenue) AS revenue,
     name
 
