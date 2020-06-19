@@ -114,10 +114,19 @@ app.get('/stats/daily', (req, res, next) => {
 
 app.get('/poi', (req, res, next) => {
   req.sqlQuery = `
-    SELECT * FROM public.poi point
+    SELECT
+
+    SUM(clicks) AS clicks,
+    SUM(impressions) AS impressions,
+    SUM(revenue) AS revenue,
+    name
+
+    FROM public.poi point
 
     INNER JOIN hourly_stats ON
     point.poi_id = hourly_stats.poi_id
+
+    GROUP BY name
   `
   return next()
 }, ratelimiter)
