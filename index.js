@@ -2,6 +2,7 @@ const express = require('express')
 const pg = require('pg')
 const cors = require('cors')
 const requestIp = require('request-ip');
+const fs = require('fs')
 require('dotenv').config()
 
 const app = express()
@@ -132,7 +133,8 @@ app.get('/poi', (req, res, next) => {
 }, ratelimiter)
 
 app.get('/geojson', (req, res, next) => {
-  return res.sendFile('/canadageo.json')
+  const data = fs.readFileSync('canadageo.json').toJSON();
+  return res.send(data)
 
 })
 
