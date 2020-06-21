@@ -35,7 +35,7 @@ const ratelimiter = (req, res, next)=>{
     // If MaxRequests Reached in 1minute Reject Request:
     if( count>=maxRequests && timeSinceLastRequest >= requestWindow){
       res.status(503).send('You have reached maximum requests. Please try again in 10 seconds'); 
-      // Delete Client Request after 30 sec
+      // Delete Client Request after 30 sec 
       setTimeout(function(){
         delete queue[ requestIp.getClientIp(req) ];
       }, refreshTime)
