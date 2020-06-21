@@ -132,7 +132,7 @@ app.get('/poi', (req, res, next) => {
 }, ratelimiter)
 
 app.get('/geojson', (req, res, next) => {
-  return res.sendFile('./canadageo.json')
+  return res.sendFile('/canadageo.json')
 
 })
 
