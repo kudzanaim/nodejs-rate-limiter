@@ -131,6 +131,11 @@ app.get('/poi', (req, res, next) => {
   return next()
 }, ratelimiter)
 
+app.get('/geojson', (req, res, next) => {
+  return res.sendFile('./canadageo.json')
+
+})
+
 app.listen(process.env.PORT || 5555, (err) => {
   if (err) {
     console.error(err)
