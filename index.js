@@ -133,9 +133,8 @@ app.get('/poi', (req, res, next) => {
 }, ratelimiter)
 
 app.get('/geojson', (req, res, next) => {
-  const data = fs.readFileSync('canadageo.json').toJSON();
-  return res.send(data)
-
+  const data = fs.readFileSync('canadageo.json').toString();
+  return res.status(200).send(data)
 })
 
 app.listen(process.env.PORT || 5555, (err) => {
