@@ -133,7 +133,7 @@ app.get('/poi', (req, res, next) => {
 }, ratelimiter)
 
 app.get('/geojson', (req, res, next) => {
-  const data = fs.readFileSync('Canada_AL.json').toString();
+  const data = fs.readFileSync('canada_divisions.json').toString();
   return res.status(200).send(data)
 })
 
