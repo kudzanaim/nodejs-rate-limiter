@@ -115,19 +115,21 @@ app.get('/stats/daily', (req, res, next) => {
 
 app.get('/poi', (req, res, next) => {
   req.sqlQuery = `
-    SELECT
+    SELECT DISTINCT ON 
 
+    (name)name,
+    lat,
+    lon,
     SUM(clicks) AS clicks,
     SUM(impressions/100) AS impressions,
-    SUM(revenue) AS revenue,
-    name
+    SUM(revenue) AS revenue
 
     FROM public.poi point
 
     INNER JOIN hourly_stats ON
     point.poi_id = hourly_stats.poi_id
 
-    GROUP BY name
+    GROUP BY point.poi_id
   `
   return next()
 }, ratelimiter)
