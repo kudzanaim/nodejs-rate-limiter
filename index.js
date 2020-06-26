@@ -115,14 +115,15 @@ app.get('/stats/daily', (req, res, next) => {
 
 app.get('/poi', (req, res, next) => {
   req.sqlQuery = `
-    SELECT DISTINCT ON 
-
-    (name)name,
-    lat,
-    lon,
+    SELECT 
+    
+    
     SUM(clicks) AS clicks,
     SUM(impressions/100) AS impressions,
-    SUM(revenue) AS revenue
+    SUM(revenue) AS revenue,
+    name,
+    lat,
+    lon
 
     FROM public.poi point
 
